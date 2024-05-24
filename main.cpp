@@ -240,8 +240,26 @@ void gameOver() {
     while (_getch() != '\r');
 }
 
+void showTutorial() {
+    system("cls");
+    std::string tutorialText = 
+        "To move use wasd, enemies are red, you lose 25 hp each time you kill an enemy, because it hits you back, "
+        "restore your hp with health potions, they are pink, you lose stamina each time you move, restore it using "
+        "stamina or energy potions, don't walk on water, it slows you down. Kill 10 enemies to win. Good luck!!!\n"
+        "Press any button to play";
+
+    for (int i = 0; i < tutorialText.length(); ++i) {
+        std::cout << tutorialText[i];
+    }
+    
+    _getch();
+}
+
+
 int main() {
     srand(time(nullptr));
+
+    showTutorial();
 
     while (true) {
         initializeWorld();
